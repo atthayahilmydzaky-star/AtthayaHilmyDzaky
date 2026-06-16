@@ -4,573 +4,179 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atthaya Hilmy Dzaky | Portofolio PKL - TJKT SMK Wikrama</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary: #0a5c7e;
-      --primary-light: #0f7c9c;
-      --primary-dark: #063d55;
-      --accent: #00c9a7;
-      --bg: #f0f4f8;
+      --orange: #f5a623;
+      --orange-dark: #e0901a;
+      --dark: #111318;
+      --dark2: #1a1d24;
+      --dark3: #22262f;
       --white: #ffffff;
-      --text: #0d1f2d;
-      --text-muted: #5a7a8e;
-      --border: #dde8f0;
-      --card-shadow: 0 4px 24px rgba(10,92,126,0.08);
-      --card-shadow-hover: 0 12px 40px rgba(10,92,126,0.18);
+      --gray: #8a8f9e;
+      --border: rgba(255,255,255,0.07);
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; background: var(--dark); color: var(--white); line-height: 1.6; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+    /* NAVBAR */
+    nav { position: sticky; top: 0; z-index: 999; background: rgba(17,19,24,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 18px 28px; max-width: 1100px; margin: 0 auto; }
+    .nav-logo { font-size: 1.2rem; font-weight: 800; color: var(--white); }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 8px; list-style: none; }
+    .nav-links a { text-decoration: none; font-size: 0.82rem; font-weight: 600; color: var(--gray); padding: 7px 16px; border-radius: 4px; transition: 0.2s; text-transform: uppercase; letter-spacing: 0.5px; }
+    .nav-links a:hover, .nav-links a.active { color: var(--orange); }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-
-    /* ===== NAVBAR ===== */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 24px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .nav-logo {
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: var(--primary);
-      letter-spacing: -0.5px;
-    }
-    .nav-logo span {
-      font-weight: 400;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-left: 6px;
-    }
-    .nav-links {
-      display: flex;
-      gap: 6px;
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      padding: 6px 12px;
-      border-radius: 20px;
-      transition: all 0.2s;
-    }
-    .nav-links a:hover {
-      background: var(--bg);
-      color: var(--primary);
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
-      padding: 80px 0 60px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -80px; right: -80px;
-      width: 400px; height: 400px;
-      background: rgba(255,255,255,0.04);
-      border-radius: 50%;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -100px; left: -60px;
-      width: 300px; height: 300px;
-      background: rgba(0,201,167,0.08);
-      border-radius: 50%;
-    }
-    .hero-inner {
-      display: flex;
-      align-items: center;
-      gap: 48px;
-      position: relative;
-      z-index: 1;
-    }
-    .hero-photo {
-      flex-shrink: 0;
-    }
-    .photo-ring {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      padding: 4px;
-      background: linear-gradient(135deg, var(--accent), #fff3);
-    }
-    .photo-ring img, .photo-ring .photo-initial {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      background: linear-gradient(135deg, #0a3d55, #0f7c9c);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3.5rem;
-      color: white;
-    }
+    /* HERO */
+    .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 80px 0; }
+    .hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(245,166,35,0.08) 0%, transparent 70%); pointer-events: none; }
+    .hero-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; width: 100%; }
     .hero-text { flex: 1; }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(0,201,167,0.15);
-      border: 1px solid rgba(0,201,167,0.3);
-      color: var(--accent);
-      padding: 5px 14px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-    .hero-name {
-      font-size: 2.6rem;
-      font-weight: 900;
-      color: white;
-      line-height: 1.1;
-      letter-spacing: -1px;
-      margin-bottom: 8px;
-    }
-    .hero-role {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.75);
-      font-weight: 500;
-      margin-bottom: 16px;
-    }
-    .hero-desc {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.65);
-      max-width: 500px;
-      margin-bottom: 24px;
-      line-height: 1.7;
-    }
-    .hero-contacts {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-    .hero-contact-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.7);
-    }
-    .hero-contact-item i { color: var(--accent); font-size: 0.75rem; }
-    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn-white {
-      background: white;
-      color: var(--primary);
-      padding: 10px 22px;
-      border-radius: 30px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-    .btn-ghost {
-      background: rgba(255,255,255,0.12);
-      border: 1.5px solid rgba(255,255,255,0.3);
-      color: white;
-      padding: 10px 22px;
-      border-radius: 30px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .btn-ghost:hover { background: rgba(255,255,255,0.2); }
+    .hero-greeting { font-size: 1.2rem; font-weight: 400; color: var(--gray); margin-bottom: 8px; }
+    .hero-name { font-size: 3rem; font-weight: 800; line-height: 1.1; margin-bottom: 12px; }
+    .hero-name span { color: var(--orange); }
+    .hero-role { font-size: 0.9rem; color: var(--gray); margin-bottom: 6px; }
+    .hero-role-highlight { color: var(--orange); font-weight: 600; font-size: 0.9rem; margin-bottom: 28px; }
+    .btn-orange { display: inline-flex; align-items: center; gap: 8px; background: var(--orange); color: var(--dark); padding: 12px 28px; border-radius: 4px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: 0.2s; margin-bottom: 32px; }
+    .btn-orange:hover { background: var(--orange-dark); transform: translateX(4px); }
+    .hero-socials { display: flex; gap: 14px; margin-bottom: 20px; }
+    .hero-social { width: 38px; height: 38px; border: 1.5px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--gray); font-size: 0.9rem; text-decoration: none; transition: 0.2s; }
+    .hero-social:hover { border-color: var(--orange); color: var(--orange); }
+    .hero-cv { font-size: 0.82rem; color: var(--gray); }
+    .hero-cv a { color: var(--orange); text-decoration: none; font-weight: 600; }
+    .hero-photo { flex-shrink: 0; position: relative; }
+    .photo-circle { width: 300px; height: 300px; border-radius: 50%; background: var(--orange); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .photo-circle img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    .photo-circle .photo-icon { font-size: 8rem; color: rgba(17,19,24,0.5); }
+    .photo-ring-outer { width: 320px; height: 320px; border-radius: 50%; border: 2px solid rgba(245,166,35,0.3); display: flex; align-items: center; justify-content: center; }
+    /* SECTIONS */
+    .section { padding: 80px 0; }
+    .section-tag { font-size: 0.75rem; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+    .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 40px; }
+    .section-title span { color: var(--orange); }
+    .divider { height: 1px; background: var(--border); margin: 0; }
 
-    /* ===== SECTIONS ===== */
-    .section { padding: 64px 0; }
-    .section-header { margin-bottom: 36px; }
-    .section-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--primary-light);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 6px;
-    }
-    .section-title {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--text);
-      letter-spacing: -0.5px;
-    }
-    .section-title span { color: var(--primary); }
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .about-photo { position: relative; }
+    .about-img-wrap { width: 100%; aspect-ratio: 1; border-radius: 16px; background: var(--dark3); overflow: hidden; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; }
+    .about-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .about-img-wrap .big-icon { font-size: 6rem; color: var(--orange); opacity: 0.3; }
+    .about-badge { position: absolute; bottom: -16px; right: -16px; background: var(--orange); color: var(--dark); padding: 12px 18px; border-radius: 10px; font-weight: 800; font-size: 1.4rem; text-align: center; line-height: 1.2; }
+    .about-badge small { font-size: 0.65rem; font-weight: 600; display: block; }
+    blockquote { border-left: 3px solid var(--orange); padding-left: 16px; color: var(--orange); font-style: italic; font-size: 0.9rem; margin-bottom: 20px; }
+    .about-text p { color: var(--gray); font-size: 0.88rem; line-height: 1.8; }
 
-    /* ===== CARDS ===== */
-    .card {
-      background: var(--white);
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      box-shadow: var(--card-shadow);
-      transition: all 0.3s;
-    }
-    .card:hover {
-      box-shadow: var(--card-shadow-hover);
-      transform: translateY(-3px);
-      border-color: #b0cfe0;
-    }
+    /* SKILLS */
+    .skills-section { background: var(--dark2); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
+    .skill-card { background: var(--dark3); border: 1px solid var(--border); border-radius: 10px; padding: 18px; display: flex; align-items: center; gap: 12px; transition: 0.2s; }
+    .skill-card:hover { border-color: var(--orange); transform: translateY(-3px); }
+    .skill-card i { color: var(--orange); font-size: 1.3rem; width: 24px; }
+    .skill-card span { font-size: 0.82rem; font-weight: 500; color: var(--white); }
 
-    /* ===== PENDIDIKAN ===== */
-    .edu-grid { display: flex; flex-direction: column; gap: 12px; }
-    .edu-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px 22px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      box-shadow: var(--card-shadow);
-      transition: 0.2s;
-    }
-    .edu-card:hover { transform: translateX(4px); border-color: #b0cfe0; }
-    .edu-icon {
-      width: 46px; height: 46px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      display: flex; align-items: center; justify-content: center;
-      color: white; font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-    .edu-info h4 { font-size: 0.95rem; font-weight: 700; color: var(--text); }
-    .edu-info p { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
-    .edu-year {
-      margin-left: auto;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--primary);
-      background: #e8f4f9;
-      padding: 4px 10px;
-      border-radius: 20px;
-      white-space: nowrap;
-    }
-
-    /* ===== KEAHLIAN ===== */
-    .skills-bg {
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-      border-radius: 20px;
-      padding: 36px;
-    }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 12px;
-    }
-    .skill-item {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 12px;
-      padding: 14px 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: 0.2s;
-    }
-    .skill-item:hover {
-      background: rgba(255,255,255,0.15);
-      border-color: rgba(0,201,167,0.4);
-    }
-    .skill-item i { color: var(--accent); font-size: 1.1rem; width: 20px; }
-    .skill-item span { font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.9); }
-
-    /* ===== SERTIFIKAT ===== */
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .cert-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: var(--card-shadow);
-      cursor: pointer;
-      transition: all 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-    .cert-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-    }
-    .cert-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--card-shadow-hover);
-      border-color: var(--primary);
-    }
-    .cert-icon {
-      width: 48px; height: 48px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #e8f4f9, #d0e8f5);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 16px;
-    }
-    .cert-icon i { font-size: 1.4rem; color: var(--primary); }
-    .cert-card h4 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
-    .cert-card p { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.5; }
-    .cert-date { font-size: 0.72rem; font-weight: 600; color: var(--primary-light); }
-    .cert-open {
-      position: absolute;
-      bottom: 16px; right: 16px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      padding: 5px 10px;
-      border-radius: 20px;
-      font-size: 0.65rem;
-      font-weight: 600;
-      color: var(--primary);
-      display: flex; align-items: center; gap: 4px;
-    }
-
-    /* ===== PROYEK ===== */
-    .project-tabs {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-    .tab-btn {
-      padding: 8px 18px;
-      border-radius: 30px;
-      border: 1.5px solid var(--border);
-      background: var(--white);
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: 0.2s;
-      display: flex; align-items: center; gap: 6px;
-    }
-    .tab-btn.active, .tab-btn:hover {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: white;
-    }
+    /* SERTIFIKAT */
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .cert-card { background: var(--dark2); border: 1px solid var(--border); border-radius: 12px; padding: 24px; cursor: pointer; transition: 0.3s; position: relative; overflow: hidden; }
+    .cert-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--orange), var(--orange-dark)); }
+    .cert-card:hover { border-color: var(--orange); transform: translateY(-5px); }
+    .cert-card-icon { width: 50px; height: 50px; background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .cert-card-icon i { color: var(--orange); font-size: 1.4rem; }
+    .cert-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
+    .cert-card p { font-size: 0.78rem; color: var(--gray); margin-bottom: 10px; line-height: 1.5; }
+    .cert-card .cert-date { font-size: 0.72rem; color: var(--orange); font-weight: 600; }
+    .cert-open { position: absolute; bottom: 14px; right: 14px; background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.2); color: var(--orange); padding: 4px 10px; border-radius: 20px; font-size: 0.65rem; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+    /* PROYEK */
+    .proyek-section { background: var(--dark2); }
+    .tab-row { display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+    .tab-btn { padding: 9px 20px; border-radius: 4px; border: 1.5px solid var(--border); background: transparent; font-size: 0.82rem; font-weight: 600; color: var(--gray); cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 7px; font-family: 'Poppins', sans-serif; }
+    .tab-btn.active, .tab-btn:hover { background: var(--orange); border-color: var(--orange); color: var(--dark); }
     .tab-content { display: none; }
     .tab-content.active { display: block; }
-    .project-list { display: flex; flex-direction: column; gap: 10px; }
-    .project-row {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px 18px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      transition: 0.2s;
-    }
-    .project-row:hover { border-color: #b0cfe0; transform: translateX(4px); }
-    .project-row .check { color: #22c55e; font-size: 1rem; }
-    .project-row .proj-name { flex: 1; font-size: 0.88rem; font-weight: 600; color: var(--text); }
-    .project-row .proj-due {
-      font-size: 0.72rem; color: var(--text-muted);
-      background: var(--bg); padding: 3px 10px; border-radius: 20px;
-    }
-    .badge-done {
-      background: #dcfce7; color: #15803d;
-      font-size: 0.68rem; font-weight: 700;
-      padding: 3px 10px; border-radius: 20px;
-    }
+    .proj-list { display: flex; flex-direction: column; gap: 10px; }
+    .proj-row { background: var(--dark3); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; display: flex; align-items: center; gap: 12px; transition: 0.2s; }
+    .proj-row:hover { border-color: var(--orange); transform: translateX(5px); }
+    .proj-row .chk { color: #22c55e; }
+    .proj-row .pname { flex: 1; font-size: 0.87rem; font-weight: 500; }
+    .proj-row .pdue { font-size: 0.72rem; color: var(--gray); background: var(--dark); padding: 3px 10px; border-radius: 20px; }
+    .badge-selesai { background: rgba(34,197,94,0.15); color: #22c55e; font-size: 0.68rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; border: 1px solid rgba(34,197,94,0.2); }
 
-    /* ===== PENGALAMAN ===== */
-    .exp-grid { display: flex; flex-direction: column; gap: 12px; }
-    .exp-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px 20px;
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      box-shadow: var(--card-shadow);
-      transition: 0.2s;
-    }
-    .exp-card:hover { transform: translateX(4px); border-color: #b0cfe0; }
-    .exp-dot {
-      width: 42px; height: 42px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #e8f4f9, #cce4f0);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .exp-dot i { color: var(--primary); font-size: 1rem; }
-    .exp-card p { font-size: 0.88rem; color: var(--text); line-height: 1.6; }
-    .exp-card strong { color: var(--primary-dark); }
+    /* PENGALAMAN */
+    .exp-list { display: flex; flex-direction: column; gap: 14px; }
+    .exp-item { background: var(--dark2); border: 1px solid var(--border); border-left: 3px solid var(--orange); border-radius: 10px; padding: 18px 20px; display: flex; gap: 16px; align-items: flex-start; transition: 0.2s; }
+    .exp-item:hover { border-left-color: var(--orange-dark); transform: translateX(5px); }
+    .exp-ico { width: 42px; height: 42px; border-radius: 8px; background: rgba(245,166,35,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .exp-ico i { color: var(--orange); font-size: 1rem; }
+    .exp-item p { font-size: 0.87rem; color: var(--gray); line-height: 1.7; }
+    .exp-item strong { color: var(--white); }
 
-    /* ===== KONTAK ===== */
-    .kontak-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
-    .kontak-left h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; }
-    .kontak-item {
-      display: flex; align-items: center; gap: 14px;
-      margin-bottom: 16px;
-    }
-    .kontak-item-icon {
-      width: 40px; height: 40px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      color: white; font-size: 0.9rem;
-      flex-shrink: 0;
-    }
-    .kontak-item span { font-size: 0.88rem; color: var(--text); font-weight: 500; }
+    /* PENDIDIKAN */
+    .edu-list { display: flex; flex-direction: column; gap: 14px; }
+    .edu-item { background: var(--dark2); border: 1px solid var(--border); border-radius: 10px; padding: 18px 22px; display: flex; align-items: center; gap: 16px; transition: 0.2s; }
+    .edu-item:hover { border-color: var(--orange); transform: translateX(5px); }
+    .edu-ico { width: 46px; height: 46px; border-radius: 10px; background: var(--orange); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .edu-ico i { color: var(--dark); font-size: 1.2rem; }
+    .edu-info h4 { font-size: 0.95rem; font-weight: 700; }
+    .edu-info p { font-size: 0.78rem; color: var(--gray); margin-top: 2px; }
+    .edu-year { margin-left: auto; font-size: 0.75rem; font-weight: 600; color: var(--orange); background: rgba(245,166,35,0.1); padding: 4px 12px; border-radius: 20px; white-space: nowrap; }
+
+    /* KONTAK */
+    .kontak-section { background: var(--dark2); }
+    .kontak-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .kontak-item { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+    .kontak-ico { width: 44px; height: 44px; background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .kontak-ico i { color: var(--orange); }
+    .kontak-item span { font-size: 0.87rem; color: var(--gray); }
     .social-row { display: flex; gap: 10px; margin-top: 24px; }
-    .social-btn {
-      width: 42px; height: 42px;
-      border-radius: 10px;
-      background: var(--white);
-      border: 1.5px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--primary); font-size: 1rem;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-    .social-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
-    .kontak-right {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
-      box-shadow: var(--card-shadow);
-    }
-    .kontak-right h3 { font-size: 1rem; font-weight: 700; margin-bottom: 20px; }
-    .form-group { margin-bottom: 14px; }
-    .form-group input, .form-group textarea {
-      width: 100%;
-      padding: 11px 16px;
-      border: 1.5px solid var(--border);
-      border-radius: 10px;
-      font-family: inherit;
-      font-size: 0.88rem;
-      color: var(--text);
-      outline: none;
-      transition: 0.2s;
-      background: var(--bg);
-    }
-    .form-group input:focus, .form-group textarea:focus {
-      border-color: var(--primary);
-      background: white;
-    }
-    .form-group textarea { resize: vertical; }
-    .btn-submit {
-      width: 100%;
-      padding: 12px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.2s;
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-    }
-    .btn-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+    .soc-btn { width: 42px; height: 42px; border-radius: 8px; background: var(--dark3); border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--gray); font-size: 1rem; text-decoration: none; transition: 0.2s; }
+    .soc-btn:hover { background: var(--orange); border-color: var(--orange); color: var(--dark); }
+    .form-box { background: var(--dark3); border: 1px solid var(--border); border-radius: 12px; padding: 28px; }
+    .form-box h3 { font-size: 1rem; font-weight: 700; margin-bottom: 20px; }
+    .fg { margin-bottom: 14px; }
+    .fg input, .fg textarea { width: 100%; padding: 12px 16px; background: var(--dark); border: 1.5px solid var(--border); border-radius: 8px; font-family: 'Poppins', sans-serif; font-size: 0.87rem; color: var(--white); outline: none; transition: 0.2s; }
+    .fg input:focus, .fg textarea:focus { border-color: var(--orange); }
+    .fg textarea { resize: vertical; }
+    .btn-submit { width: 100%; padding: 12px; background: var(--orange); color: var(--dark); border: none; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; font-family: 'Poppins', sans-serif; transition: 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .btn-submit:hover { background: var(--orange-dark); }
 
-    /* ===== FOOTER ===== */
-    footer {
-      background: var(--primary-dark);
-      color: rgba(255,255,255,0.5);
-      text-align: center;
-      padding: 24px;
-      font-size: 0.78rem;
-    }
-    footer strong { color: rgba(255,255,255,0.8); }
+    /* FOOTER */
+    footer { background: var(--dark); border-top: 1px solid var(--border); text-align: center; padding: 24px; font-size: 0.78rem; color: var(--gray); }
+    footer span { color: var(--orange); font-weight: 600; }
 
-    /* ===== HOBI ===== */
-    .hobi-grid { display: flex; flex-wrap: wrap; gap: 10px; }
-    .hobi-pill {
-      background: var(--white);
-      border: 1.5px solid var(--border);
-      border-radius: 30px;
-      padding: 8px 18px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      display: flex; align-items: center; gap: 8px;
-      transition: 0.2s;
-    }
-    .hobi-pill i { color: var(--primary-light); }
-    .hobi-pill:hover { border-color: var(--primary); color: var(--primary); background: #e8f4f9; }
+    /* HOBI */
+    .hobi-wrap { display: flex; flex-wrap: wrap; gap: 10px; }
+    .hobi-tag { background: var(--dark2); border: 1.5px solid var(--border); border-radius: 30px; padding: 8px 20px; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; transition: 0.2s; }
+    .hobi-tag i { color: var(--orange); }
+    .hobi-tag:hover { border-color: var(--orange); color: var(--orange); }
 
-    /* ===== DIVIDER ===== */
-    .section-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border), transparent);
-      margin: 0 24px;
-    }
-
-    /* ===== RESPONSIVE ===== */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
-      .hero-inner { flex-direction: column; text-align: center; gap: 24px; }
+      .hero-inner { flex-direction: column-reverse; text-align: center; }
       .hero-name { font-size: 2rem; }
-      .hero-contacts { justify-content: center; }
-      .hero-btns { justify-content: center; }
+      .hero-socials { justify-content: center; }
+      .about-grid { grid-template-columns: 1fr; }
       .kontak-grid { grid-template-columns: 1fr; }
-      .skills-bg { padding: 24px; }
-      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .photo-ring-outer { width: 220px; height: 220px; }
+      .photo-circle { width: 200px; height: 200px; }
       .nav-links { display: none; }
-      .photo-ring { width: 120px; height: 120px; }
     }
   </style>
 </head>
 <body>
-
 <!-- NAVBAR -->
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo">Atthaya Hilmy Dzaky <span>TJKT • SMK Wikrama</span></div>
+    <div class="nav-logo">ATTHAYA<span>.</span></div>
     <ul class="nav-links">
-      <li><a href="#home">Beranda</a></li>
-      <li><a href="#pendidikan">Pendidikan</a></li>
-      <li><a href="#keahlian">Keahlian</a></li>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#tentang">About</a></li>
+      <li><a href="#keahlian">Skills</a></li>
       <li><a href="#sertifikat">Sertifikat</a></li>
       <li><a href="#proyek">Proyek</a></li>
-      <li><a href="#pengalaman">Pengalaman</a></li>
-      <li><a href="#kontak">Kontak</a></li>
+      <li><a href="#kontak">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -578,278 +184,214 @@
 <!-- HERO -->
 <section id="home" class="hero">
   <div class="container hero-inner">
-    <div class="hero-photo">
-      <div class="photo-ring" id="photoRing"></div>
-    </div>
     <div class="hero-text">
-      <div class="hero-badge"><i class="fas fa-graduation-cap"></i> Siswa PKL • TJKT SMK Wikrama</div>
-      <h1 class="hero-name">Atthaya Hilmy<br>Dzaky</h1>
-      <div class="hero-role">Teknik Jaringan Komputer & Telekomunikasi</div>
-      <p class="hero-desc">Siswa SMK Wikrama jurusan TJKT dengan pengalaman praktik instalasi server Linux, konfigurasi jaringan, dan cloud computing AWS. Siap berkontribusi dan terus belajar di dunia industri.</p>
-      <div class="hero-contacts">
-        <div class="hero-contact-item"><i class="fas fa-phone-alt"></i> 0812-8923-3014</div>
-        <div class="hero-contact-item"><i class="fas fa-envelope"></i> Atthayahilmydzaky@smkwikrama.sch.id</div>
-        <div class="hero-contact-item"><i class="fas fa-map-marker-alt"></i> Gadog, Bogor</div>
+      <div class="hero-greeting">Hello,</div>
+      <h1 class="hero-name">I Am <span>Atthaya<br>Hilmy Dzaky</span></h1>
+      <div class="hero-role">Siswa PKL || Teknik Jaringan Komputer || Cloud Computing</div>
+      <div class="hero-role-highlight">SMK Wikrama Bogor — Jurusan TJKT</div>
+      <a href="#kontak" class="btn-orange">Let's Talk <i class="fas fa-arrow-right"></i></a>
+      <div class="hero-socials">
+        <a href="#" class="hero-social"><i class="fab fa-github"></i></a>
+        <a href="#" class="hero-social"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="hero-social"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/6281289233014" class="hero-social"><i class="fab fa-whatsapp"></i></a>
       </div>
-      <div class="hero-btns">
-        <a href="#kontak" class="btn-white"><i class="fas fa-paper-plane"></i> Hubungi Saya</a>
-        <a href="#sertifikat" class="btn-ghost"><i class="fas fa-certificate"></i> Lihat Sertifikat</a>
+      <div class="hero-cv"><a href="#sertifikat"><i class="fas fa-download"></i> Lihat Sertifikat</a></div>
+    </div>
+    <div class="hero-photo">
+      <div class="photo-ring-outer">
+        <div class="photo-circle" id="heroPhoto"></div>
       </div>
     </div>
   </div>
 </section>
+<div class="divider"></div>
+<!-- ABOUT -->
+<section id="tentang" class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo">
+        <div class="about-img-wrap" id="aboutPhoto"></div>
+        <div class="about-badge">2+<small>Tahun<br>Belajar</small></div>
+      </div>
+      <div class="about-text">
+        <div class="section-tag">Tentang Saya</div>
+        <h2 class="section-title">About <span>Me</span></h2>
+        <blockquote>"Belajar tanpa henti, berkontribusi tanpa batas."</blockquote>
+        <p>Saya Atthaya Hilmy Dzaky, siswa SMK Wikrama jurusan Teknik Jaringan Komputer dan Telekomunikasi (TJKT). Saya memiliki pengalaman praktik instalasi server Linux, konfigurasi jaringan LAN, serta cloud computing AWS. Teliti, cepat belajar, dan siap mengembangkan keterampilan di dunia industri.<br><br>
+        Keahlian utama saya meliputi <strong style="color:var(--orange)">Linux Server</strong>, <strong style="color:var(--orange)">AWS Cloud Computing</strong>, <strong style="color:var(--orange)">Cisco Packet Tracer</strong>, dan <strong style="color:var(--orange)">Ansible Automation</strong>.</p>
+        <br>
+        <div class="hobi-wrap">
+          <div class="hobi-tag"><i class="fas fa-futbol"></i> Futsal</div>
+          <div class="hobi-tag"><i class="fas fa-network-wired"></i> Jaringan</div>
+          <div class="hobi-tag"><i class="fab fa-linux"></i> Linux</div>
+          <div class="hobi-tag"><i class="fab fa-aws"></i> AWS Cloud</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
 
 <!-- PENDIDIKAN -->
 <section id="pendidikan" class="section">
   <div class="container">
-    <div class="section-header">
-      <div class="section-label">Riwayat</div>
-      <h2 class="section-title">Pendidikan <span>Formal</span></h2>
-    </div>
-    <div class="edu-grid">
-      <div class="edu-card">
-        <div class="edu-icon"><i class="fas fa-school"></i></div>
-        <div class="edu-info">
-          <h4>SMK Wikrama</h4>
-          <p>Teknik Jaringan Komputer dan Telekomunikasi (TJKT)</p>
-        </div>
+    <div class="section-tag">Riwayat</div>
+    <h2 class="section-title">Pendidikan <span>Formal</span></h2>
+    <div class="edu-list">
+      <div class="edu-item">
+        <div class="edu-ico"><i class="fas fa-school"></i></div>
+        <div class="edu-info"><h4>SMK Wikrama</h4><p>Teknik Jaringan Komputer dan Telekomunikasi (TJKT)</p></div>
         <div class="edu-year">2024 – Sekarang</div>
       </div>
-      <div class="edu-card">
-        <div class="edu-icon"><i class="fas fa-mosque"></i></div>
-        <div class="edu-info">
-          <h4>SMPIT Annur Cimande</h4>
-          <p>SMP Islam Terpadu</p>
-        </div>
+      <div class="edu-item">
+        <div class="edu-ico"><i class="fas fa-mosque"></i></div>
+        <div class="edu-info"><h4>SMPIT Annur Cimande</h4><p>SMP Islam Terpadu</p></div>
         <div class="edu-year">2021 – 2024</div>
       </div>
-      <div class="edu-card">
-        <div class="edu-icon"><i class="fas fa-book-open"></i></div>
-        <div class="edu-info">
-          <h4>SDIT AR-RAHMAN</h4>
-          <p>Sekolah Dasar Islam Terpadu</p>
-        </div>
+      <div class="edu-item">
+        <div class="edu-ico"><i class="fas fa-book-open"></i></div>
+        <div class="edu-info"><h4>SDIT AR-RAHMAN</h4><p>Sekolah Dasar Islam Terpadu</p></div>
         <div class="edu-year">2015 – 2021</div>
       </div>
     </div>
   </div>
 </section>
-
-<div class="section-divider"></div>
-
-<!-- KEAHLIAN -->
-<section id="keahlian" class="section">
+<div class="divider"></div>
+<!-- SKILLS -->
+<section id="keahlian" class="section skills-section">
   <div class="container">
-    <div class="section-header">
-      <div class="section-label">Kompetensi</div>
-      <h2 class="section-title">Keahlian <span>Teknis</span></h2>
-    </div>
-    <div class="skills-bg">
-      <div class="skills-grid">
-        <div class="skill-item"><i class="fab fa-windows"></i><span>Instalasi Windows</span></div>
-        <div class="skill-item"><i class="fab fa-linux"></i><span>Instalasi Linux / Debian</span></div>
-        <div class="skill-item"><i class="fas fa-network-wired"></i><span>Jaringan LAN & Crimping UTP</span></div>
-        <div class="skill-item"><i class="fas fa-microchip"></i><span>Troubleshooting HW/SW</span></div>
-        <div class="skill-item"><i class="fab fa-aws"></i><span>Dasar-dasar AWS</span></div>
-        <div class="skill-item"><i class="fas fa-route"></i><span>Konfigurasi Router & Switch</span></div>
-        <div class="skill-item"><i class="fas fa-chalkboard"></i><span>Cisco Packet Tracer</span></div>
-        <div class="skill-item"><i class="fas fa-terminal"></i><span>Linux Server (DNS, DHCP, Web, Mail)</span></div>
-        <div class="skill-item"><i class="fas fa-cloud"></i><span>AWS EC2, VPC, ELB, RDS</span></div>
-        <div class="skill-item"><i class="fas fa-share-alt"></i><span>SAMBA & SFTP Server</span></div>
-        <div class="skill-item"><i class="fas fa-robot"></i><span>Ansible Automation</span></div>
-        <div class="skill-item"><i class="fas fa-chart-line"></i><span>Zabbix Monitoring</span></div>
-      </div>
+    <div class="section-tag">Kompetensi</div>
+    <h2 class="section-title">My <span>Skills</span></h2>
+    <div class="skills-grid">
+      <div class="skill-card"><i class="fab fa-windows"></i><span>Instalasi Windows</span></div>
+      <div class="skill-card"><i class="fab fa-linux"></i><span>Linux / Debian</span></div>
+      <div class="skill-card"><i class="fas fa-network-wired"></i><span>Jaringan LAN & UTP</span></div>
+      <div class="skill-card"><i class="fas fa-microchip"></i><span>Troubleshooting HW/SW</span></div>
+      <div class="skill-card"><i class="fab fa-aws"></i><span>AWS Cloud</span></div>
+      <div class="skill-card"><i class="fas fa-route"></i><span>Router & Switch</span></div>
+      <div class="skill-card"><i class="fas fa-chalkboard"></i><span>Cisco Packet Tracer</span></div>
+      <div class="skill-card"><i class="fas fa-terminal"></i><span>Linux Server</span></div>
+      <div class="skill-card"><i class="fas fa-cloud"></i><span>AWS EC2, VPC, ELB, RDS</span></div>
+      <div class="skill-card"><i class="fas fa-share-alt"></i><span>SAMBA & SFTP</span></div>
+      <div class="skill-card"><i class="fas fa-robot"></i><span>Ansible Automation</span></div>
+      <div class="skill-card"><i class="fas fa-chart-line"></i><span>Zabbix Monitoring</span></div>
     </div>
   </div>
 </section>
-
-<div class="section-divider"></div>
+<div class="divider"></div>
 
 <!-- SERTIFIKAT -->
 <section id="sertifikat" class="section">
   <div class="container">
-    <div class="section-header">
-      <div class="section-label">Pencapaian</div>
-      <h2 class="section-title">Sertifikat <span>Resmi</span></h2>
-    </div>
+    <div class="section-tag">Pencapaian</div>
+    <h2 class="section-title">My <span>Certificates</span></h2>
     <div class="cert-grid">
-
-      <div class="cert-card" onclick="window.open('AC-825-55558510-97 Certificate Aguna Course (1).pdf', '_blank')">
-        <div class="cert-icon"><i class="fas fa-server"></i></div>
+      <div class="cert-card" onclick="window.open('sertifikat_vm.pdf','_blank')">
+        <div class="cert-card-icon"><i class="fas fa-server"></i></div>
         <h4>Virtual Machine Fundamental</h4>
-        <p>Aguna Course — Atas kelulusannya pada kursus Virtual Machine Fundamental</p>
-        <div class="cert-date"><i class="fas fa-calendar-alt"></i> No. AC-825-55558510-97 | 18 September 2024</div>
+        <p>Aguna Course — Kursus Virtual Machine Fundamental</p>
+        <div class="cert-date"><i class="fas fa-calendar-alt"></i> No. AC-825-55558510-97 | 18 Sep 2024</div>
         <div class="cert-open"><i class="fas fa-external-link-alt"></i> Buka PDF</div>
       </div>
-
-      <div class="cert-card" onclick="window.open('Junior_Cybersecurity_Analyst_Career_Path_certificate.pdf', '_blank')">
-        <div class="cert-icon"><i class="fas fa-shield-alt"></i></div>
+      <div class="cert-card" onclick="window.open('Junior_Cybersecurity_Analyst_Career_Path_certificate.pdf','_blank')">
+        <div class="cert-card-icon"><i class="fas fa-shield-alt"></i></div>
         <h4>Junior Cybersecurity Analyst</h4>
         <p>Cisco Networking Academy — Career Path Certificate</p>
         <div class="cert-date"><i class="fas fa-calendar-alt"></i> Junior Cybersecurity Analyst Career Path</div>
         <div class="cert-open"><i class="fas fa-external-link-alt"></i> Buka PDF</div>
       </div>
-
-      <div class="cert-card" onclick="window.open('sertifikat 1.pdf', '_blank')">
-        <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+      <div class="cert-card" onclick="window.open('sertifikat_kompetensi.pdf','_blank')">
+        <div class="cert-card-icon"><i class="fas fa-certificate"></i></div>
         <h4>Sertifikat Kompetensi</h4>
         <p>Sertifikat kelulusan / kompetensi tambahan</p>
         <div class="cert-date"><i class="fas fa-calendar-alt"></i> 2024</div>
         <div class="cert-open"><i class="fas fa-external-link-alt"></i> Buka PDF</div>
       </div>
-
     </div>
   </div>
 </section>
-
-<div class="section-divider"></div>
-
-<!-- PROYEK & TUGAS -->
-<section id="proyek" class="section">
+<div class="divider"></div>
+<!-- PROYEK -->
+<section id="proyek" class="section proyek-section">
   <div class="container">
-    <div class="section-header">
-      <div class="section-label">Portofolio Tugas</div>
-      <h2 class="section-title">Proyek & <span>Tugas</span></h2>
+    <div class="section-tag">Portofolio Tugas</div>
+    <h2 class="section-title">My <span>Projects</span></h2>
+    <div class="tab-row">
+      <button class="tab-btn active" onclick="switchTab('linux',this)"><i class="fab fa-linux"></i> Linux Server</button>
+      <button class="tab-btn" onclick="switchTab('cloud',this)"><i class="fab fa-aws"></i> Cloud AWS</button>
     </div>
-
-    <div class="project-tabs">
-      <button class="tab-btn active" onclick="switchTab('linux', this)">
-        <i class="fab fa-linux"></i> Linux Server
-      </button>
-      <button class="tab-btn" onclick="switchTab('cloud', this)">
-        <i class="fab fa-aws"></i> Cloud AWS
-      </button>
-    </div>
-
     <div id="tab-linux" class="tab-content active">
-      <div class="project-list">
-        <div class="project-row"><span class="check"><i class="fas fa-check-circle"></i></span><span class="proj-name">LK Linux 1 - NAT Gateway</span><span class="proj-due">Apr 20, 4:00 PM</span><span class="badge-done">Selesai</span></div>
-        <div class="project-row"><span class="check"><i class="fas fa-check-circle"></i></span><span class="proj-name">LK Linux 2 - DHCP & DNS Server</span><span class="proj-due">Apr 21, 4:00 PM</span><span class="badge-done">Selesai</span></div>
-        <div class="project-row"><span class="check"><i class="fas fa-check-circle"></i></span><span class="proj-name">LK Linux 3 - SFTP Server</span><span class="proj-due">Apr 22, 4:00 PM</span><span class="badge-done">Selesai</span></div>
-        <div class="project-row"><span class="check"><i class="fas fa-check-circle"></i></span><span class="proj-name">LK Linux 4 - SAMBA Server</span><span class="proj-due">Apr 22, 4:00 PM</span><span class="badge-done">Selesai</span></div>
-        <div class="project-row"><span class="check"><i class="fas fa-check-circle"></i></span><span class="proj-name">LK Linux 5 - Web Server</span><span class="proj-due">Apr 23, 4:00 PM</span><span class="badge-done">Selesai</span></div>
-        <div class="project-row"><span class="check"><i class="fas fa-check-circle"></i></span><span class="proj-name">LK Linux 6 - Mail Server</span><span class="proj-due">Apr 24, 4:00 PM</span><span class="badge-done">Selesai</span></div>
-        <div class="project-row"><span class="check"><i class="fas fa-check-circle"></i></span><span class="proj-name">LK Linux 7 - Automation Ansible</span><span class="proj-due">Apr 25, 4:00 PM</span><span class="badge-done">Selesai</span></div>
-        <div class="project-row"><span class="check"><i class="fas fa-check-circle"></i></span><span class="proj-name">LK Linux - Superlab</span><span class="proj-due">May 5, 4:00 PM</span><span class="badge-done">Selesai</span></div>
+      <div class="proj-list">
+        <div class="proj-row"><span class="chk"><i class="fas fa-check-circle"></i></span><span class="pname">LK Linux 1 - NAT Gateway</span><span class="pdue">Apr 20, 4:00 PM</span><span class="badge-selesai">Selesai</span></div>
+        <div class="proj-row"><span class="chk"><i class="fas fa-check-circle"></i></span><span class="pname">LK Linux 2 - DHCP & DNS Server</span><span class="pdue">Apr 21, 4:00 PM</span><span class="badge-selesai">Selesai</span></div>
+        <div class="proj-row"><span class="chk"><i class="fas fa-check-circle"></i></span><span class="pname">LK Linux 3 - SFTP Server</span><span class="pdue">Apr 22, 4:00 PM</span><span class="badge-selesai">Selesai</span></div>
+        <div class="proj-row"><span class="chk"><i class="fas fa-check-circle"></i></span><span class="pname">LK Linux 4 - SAMBA Server</span><span class="pdue">Apr 22, 4:00 PM</span><span class="badge-selesai">Selesai</span></div>
+        <div class="proj-row"><span class="chk"><i class="fas fa-check-circle"></i></span><span class="pname">LK Linux 5 - Web Server</span><span class="pdue">Apr 23, 4:00 PM</span><span class="badge-selesai">Selesai</span></div>
+        <div class="proj-row"><span class="chk"><i class="fas fa-check-circle"></i></span><span class="pname">LK Linux 6 - Mail Server</span><span class="pdue">Apr 24, 4:00 PM</span><span class="badge-selesai">Selesai</span></div>
+        <div class="proj-row"><span class="chk"><i class="fas fa-check-circle"></i></span><span class="pname">LK Linux 7 - Automation Ansible</span><span class="pdue">Apr 25, 4:00 PM</span><span class="badge-selesai">Selesai</span></div>
+        <div class="proj-row"><span class="chk"><i class="fas fa-check-circle"></i></span><span class="pname">LK Linux - Superlab</span><span class="pdue">May 5, 4:00 PM</span><span class="badge-selesai">Selesai</span></div>
       </div>
     </div>
-
     <div id="tab-cloud" class="tab-content">
-      <div class="project-list">
-        <div class="project-row"><span class="check"><i class="fas fa-check-circle"></i></span><span class="proj-name">LKPCD Cloud 1.1 - Pengenalan Cloud</span><span class="proj-due">Sep 20, 2025</span><span class="badge-done">Selesai</span></div>
-        <div class="project-row"><span class="check"><i class="fas fa-check-circle"></i></span><span class="proj-name">LKPCD Cloud 2.1 - Elastic Compute Cloud (EC2)</span><span class="proj-due">Sep 30, 2025</span><span class="badge-done">Selesai</span></div>
-        <div class="project-row"><span class="check"><i class="fas fa-check-circle"></i></span><span class="proj-name">LK Cloud 3.1 - Build AWS VPC & Launch EC2</span><span class="proj-due">Oct 3, 2025</span><span class="badge-done">Selesai</span></div>
-        <div class="project-row"><span class="check"><i class="fas fa-check-circle"></i></span><span class="proj-name">LKPCD Cloud 3.2 - Monitoring with NMS Zabbix</span><span class="proj-due">Oct 4, 2025</span><span class="badge-done">Selesai</span></div>
-        <div class="project-row"><span class="check"><i class="fas fa-check-circle"></i></span><span class="proj-name">LKDP-04 - Cloud RDS dan NMS Zabbix</span><span class="proj-due">Oct 24, 2025</span><span class="badge-done">Selesai</span></div>
-        <div class="project-row"><span class="check"><i class="fas fa-check-circle"></i></span><span class="proj-name">LK 1,2,3 Hosting - CyberPanel & WordPress</span><span class="proj-due">No due date</span><span class="badge-done">Selesai</span></div>
-        <div class="project-row"><span class="check"><i class="fas fa-check-circle"></i></span><span class="proj-name">LKPCD Cloud 5.1 - AWS ELB & Autoscaling</span><span class="proj-due">May 20, 4:00 PM</span><span class="badge-done">Selesai</span></div>
-        <div class="project-row"><span class="check"><i class="fas fa-check-circle"></i></span><span class="proj-name">LKPCD Cloud 5.2 - Deploy Web Server pada AWS</span><span class="proj-due">May 20, 11:59 PM</span><span class="badge-done">Selesai</span></div>
+      <div class="proj-list">
+        <div class="proj-row"><span class="chk"><i class="fas fa-check-circle"></i></span><span class="pname">LKPCD Cloud 1.1 - Pengenalan Cloud</span><span class="pdue">Sep 20, 2025</span><span class="badge-selesai">Selesai</span></div>
+        <div class="proj-row"><span class="chk"><i class="fas fa-check-circle"></i></span><span class="pname">LKPCD Cloud 2.1 - Elastic Compute Cloud (EC2)</span><span class="pdue">Sep 30, 2025</span><span class="badge-selesai">Selesai</span></div>
+        <div class="proj-row"><span class="chk"><i class="fas fa-check-circle"></i></span><span class="pname">LK Cloud 3.1 - Build AWS VPC & Launch EC2</span><span class="pdue">Oct 3, 2025</span><span class="badge-selesai">Selesai</span></div>
+        <div class="proj-row"><span class="chk"><i class="fas fa-check-circle"></i></span><span class="pname">LKPCD Cloud 3.2 - Monitoring with NMS Zabbix</span><span class="pdue">Oct 4, 2025</span><span class="badge-selesai">Selesai</span></div>
+        <div class="proj-row"><span class="chk"><i class="fas fa-check-circle"></i></span><span class="pname">LKDP-04 - Cloud RDS dan NMS Zabbix</span><span class="pdue">Oct 24, 2025</span><span class="badge-selesai">Selesai</span></div>
+        <div class="proj-row"><span class="chk"><i class="fas fa-check-circle"></i></span><span class="pname">LK 1,2,3 Hosting - CyberPanel & WordPress</span><span class="pdue">No due date</span><span class="badge-selesai">Selesai</span></div>
+        <div class="proj-row"><span class="chk"><i class="fas fa-check-circle"></i></span><span class="pname">LKPCD Cloud 5.1 - AWS ELB & Autoscaling</span><span class="pdue">May 20, 4:00 PM</span><span class="badge-selesai">Selesai</span></div>
+        <div class="proj-row"><span class="chk"><i class="fas fa-check-circle"></i></span><span class="pname">LKPCD Cloud 5.2 - Deploy Web Server pada AWS</span><span class="pdue">May 20, 11:59 PM</span><span class="badge-selesai">Selesai</span></div>
       </div>
     </div>
-
   </div>
 </section>
-
-<div class="section-divider"></div>
-
+<div class="divider"></div>
 <!-- PENGALAMAN -->
 <section id="pengalaman" class="section">
   <div class="container">
-    <div class="section-header">
-      <div class="section-label">Praktik Kerja</div>
-      <h2 class="section-title">Pengalaman <span>Praktik</span></h2>
-    </div>
-    <div class="exp-grid">
-      <div class="exp-card">
-        <div class="exp-dot"><i class="fas fa-plug"></i></div>
-        <p><strong>Crimping Kabel UTP</strong> — Membangun jaringan LAN untuk keperluan lab sekolah</p>
-      </div>
-      <div class="exp-card">
-        <div class="exp-dot"><i class="fab fa-linux"></i></div>
-        <p><strong>Instalasi & Konfigurasi Debian Linux</strong> — Manajemen user dan service dasar (DNS, DHCP, Web, Mail, SAMBA, SFTP, Ansible)</p>
-      </div>
-      <div class="exp-card">
-        <div class="exp-dot"><i class="fas fa-server"></i></div>
-        <p><strong>Konfigurasi Router dan Switch</strong> — VLAN, routing static, dan port security</p>
-      </div>
-      <div class="exp-card">
-        <div class="exp-dot"><i class="fas fa-project-diagram"></i></div>
-        <p><strong>Simulasi Jaringan — Cisco Packet Tracer</strong> — Desain topologi perusahaan skala kecil</p>
-      </div>
-      <div class="exp-card">
-        <div class="exp-dot"><i class="fab fa-aws"></i></div>
-        <p><strong>AWS Cloud Computing</strong> — EC2, VPC, ELB, Autoscaling, RDS, Zabbix Monitoring</p>
-      </div>
-      <div class="exp-card">
-        <div class="exp-dot"><i class="fas fa-globe"></i></div>
-        <p><strong>Hosting Management</strong> — Instalasi CyberPanel & WordPress di server cloud</p>
-      </div>
+    <div class="section-tag">Praktik Kerja</div>
+    <h2 class="section-title">My <span>Experience</span></h2>
+    <div class="exp-list">
+      <div class="exp-item"><div class="exp-ico"><i class="fas fa-plug"></i></div><p><strong>Crimping Kabel UTP</strong> — Membangun jaringan LAN untuk keperluan lab sekolah</p></div>
+      <div class="exp-item"><div class="exp-ico"><i class="fab fa-linux"></i></div><p><strong>Instalasi & Konfigurasi Debian Linux</strong> — DNS, DHCP, Web, Mail, SAMBA, SFTP, Ansible</p></div>
+      <div class="exp-item"><div class="exp-ico"><i class="fas fa-server"></i></div><p><strong>Konfigurasi Router dan Switch</strong> — VLAN, routing static, dan port security</p></div>
+      <div class="exp-item"><div class="exp-ico"><i class="fas fa-project-diagram"></i></div><p><strong>Simulasi Jaringan — Cisco Packet Tracer</strong> — Desain topologi perusahaan skala kecil</p></div>
+      <div class="exp-item"><div class="exp-ico"><i class="fab fa-aws"></i></div><p><strong>AWS Cloud Computing</strong> — EC2, VPC, ELB, Autoscaling, RDS, Zabbix Monitoring</p></div>
+      <div class="exp-item"><div class="exp-ico"><i class="fas fa-globe"></i></div><p><strong>Hosting Management</strong> — Instalasi CyberPanel & WordPress di server cloud</p></div>
     </div>
   </div>
 </section>
-
-<div class="section-divider"></div>
-
-<!-- HOBI -->
-<section id="hobi" class="section" style="padding-top: 0;">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-label">Tentang Saya</div>
-      <h2 class="section-title">Hobi & <span>Minat</span></h2>
-    </div>
-    <div class="hobi-grid">
-      <div class="hobi-pill"><i class="fas fa-futbol"></i> Futsal</div>
-      <div class="hobi-pill"><i class="fas fa-network-wired"></i> Konfigurasi Jaringan</div>
-      <div class="hobi-pill"><i class="fab fa-linux"></i> Linux & Open Source</div>
-      <div class="hobi-pill"><i class="fab fa-aws"></i> AWS & Cloud Computing</div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
+<div class="divider"></div>
 
 <!-- KONTAK -->
-<section id="kontak" class="section">
+<section id="kontak" class="section kontak-section">
   <div class="container">
-    <div class="section-header">
-      <div class="section-label">Hubungi</div>
-      <h2 class="section-title">Mari <span>Berkolaborasi</span></h2>
-    </div>
+    <div class="section-tag">Hubungi</div>
+    <h2 class="section-title">Contact <span>Me</span></h2>
     <div class="kontak-grid">
-      <div class="kontak-left">
-        <h3>Informasi Kontak</h3>
-        <div class="kontak-item">
-          <div class="kontak-item-icon"><i class="fas fa-phone-alt"></i></div>
-          <span>0812-8923-3014</span>
-        </div>
-        <div class="kontak-item">
-          <div class="kontak-item-icon"><i class="fas fa-envelope"></i></div>
-          <span>Atthayahilmydzaky@smkwikrama.sch.id</span>
-        </div>
-        <div class="kontak-item">
-          <div class="kontak-item-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <span>Jl. Pasir Muncang, Gadog, Bogor</span>
-        </div>
-        <div class="kontak-item">
-          <div class="kontak-item-icon"><i class="fas fa-school"></i></div>
-          <span>SMK Wikrama — TJKT</span>
-        </div>
+      <div>
+        <div class="kontak-item"><div class="kontak-ico"><i class="fas fa-phone-alt"></i></div><span>0812-8923-3014</span></div>
+        <div class="kontak-item"><div class="kontak-ico"><i class="fas fa-envelope"></i></div><span>Atthayahilmydzaky@smkwikrama.sch.id</span></div>
+        <div class="kontak-item"><div class="kontak-ico"><i class="fas fa-map-marker-alt"></i></div><span>Jl. Pasir Muncang, Gadog, Bogor</span></div>
+        <div class="kontak-item"><div class="kontak-ico"><i class="fas fa-school"></i></div><span>SMK Wikrama — TJKT</span></div>
         <div class="social-row">
-          <a href="#" class="social-btn"><i class="fab fa-github"></i></a>
-          <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-github"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/6281289233014" class="soc-btn"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
-      <div class="kontak-right">
-        <h3>Kirim Pesan</h3>
+      <div class="form-box">
+        <h3>Kirim Pesan via WhatsApp</h3>
         <form id="contactForm">
-          <div class="form-group"><input type="text" placeholder="Nama Lengkap" id="name" required></div>
-          <div class="form-group"><input type="email" placeholder="Email Aktif" id="email" required></div>
-          <div class="form-group"><textarea rows="4" placeholder="Tulis pesan Anda..." id="message" required></textarea></div>
+          <div class="fg"><input type="text" placeholder="Nama Lengkap" id="name" required></div>
+          <div class="fg"><input type="email" placeholder="Email Aktif" id="email" required></div>
+          <div class="fg"><textarea rows="4" placeholder="Tulis pesan Anda..." id="message" required></textarea></div>
           <button type="submit" class="btn-submit"><i class="fab fa-whatsapp"></i> Kirim via WhatsApp</button>
         </form>
-        <p id="formFeedback" style="margin-top:12px; font-size:0.8rem; text-align:center;"></p>
+        <p id="formFeedback" style="margin-top:12px;font-size:0.8rem;text-align:center;"></p>
       </div>
     </div>
   </div>
@@ -857,22 +399,27 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 <strong>Atthaya Hilmy Dzaky</strong> — SMK Wikrama · Teknik Jaringan Komputer dan Telekomunikasi · Portofolio PKL</p>
+  <p>© 2025 <span>Atthaya Hilmy Dzaky</span> — SMK Wikrama · TJKT · Portofolio PKL</p>
 </footer>
 
 <script>
-  // Foto profil
+  // Foto profil hero
   (function() {
-    const ring = document.getElementById('photoRing');
-    const names = ['ataya.png','ataya.jpg','ataya.jpeg','atthaya.jpg','foto.jpg','profile.jpg'];
+    const hero = document.getElementById('heroPhoto');
+    const about = document.getElementById('aboutPhoto');
+    const names = ['ataya.png','ataya.jpg','ataya.jpeg','atthaya.jpg','foto.jpg'];
     let i = 0;
     function tryNext() {
       if (i >= names.length) {
-        ring.innerHTML = '<div class="photo-initial" style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;border-radius:50%;background:linear-gradient(135deg,#063d55,#0f7c9c);color:white;font-size:3rem;"><i class="fas fa-user-graduate"></i></div>';
+        hero.innerHTML = '<i class="fas fa-user-graduate photo-icon"></i>';
+        if(about) about.innerHTML = '<i class="fas fa-user-graduate big-icon"></i>';
         return;
       }
       const img = new Image();
-      img.onload = () => { ring.innerHTML = `<img src="${names[i]}" alt="Atthaya" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">`; };
+      img.onload = () => {
+        hero.innerHTML = `<img src="${names[i]}" alt="Atthaya">`;
+        if(about) about.innerHTML = `<img src="${names[i]}" alt="Atthaya">`;
+      };
       img.onerror = () => { i++; tryNext(); };
       img.src = names[i];
     }
@@ -887,23 +434,18 @@
     btn.classList.add('active');
   }
 
-  // Form kontak — kirim via WhatsApp
+  // Form WA
   document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const message = document.getElementById('message').value.trim();
     const fb = document.getElementById('formFeedback');
-    if (!name || !email || !message) {
-      fb.innerHTML = '<span style="color:#dc2626;">⚠️ Semua kolom harus diisi!</span>'; return;
-    }
-    if (!email.includes('@')) {
-      fb.innerHTML = '<span style="color:#dc2626;">📧 Email tidak valid</span>'; return;
-    }
+    if (!name || !email || !message) { fb.innerHTML = '<span style="color:#f87171;">⚠️ Semua kolom harus diisi!</span>'; return; }
+    if (!email.includes('@')) { fb.innerHTML = '<span style="color:#f87171;">📧 Email tidak valid</span>'; return; }
     const text = `Halo Atthaya! 👋\n\nNama: ${name}\nEmail: ${email}\n\nPesan:\n${message}`;
-    const waUrl = `https://wa.me/6281289233014?text=${encodeURIComponent(text)}`;
-    window.open(waUrl, '_blank');
-    fb.innerHTML = '<span style="color:#16a34a;">✅ Membuka WhatsApp...</span>';
+    window.open(`https://wa.me/6281289233014?text=${encodeURIComponent(text)}`, '_blank');
+    fb.innerHTML = '<span style="color:#4ade80;">✅ Membuka WhatsApp...</span>';
     this.reset();
     setTimeout(() => fb.innerHTML = '', 4000);
   });
@@ -912,7 +454,7 @@
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {
       const t = document.querySelector(this.getAttribute('href'));
-      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
     });
   });
 </script>
