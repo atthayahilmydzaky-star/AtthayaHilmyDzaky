@@ -10,9 +10,9 @@
     :root {
       --orange: #f5a623;
       --orange-dark: #e0901a;
-      --dark: #111318;
-      --dark2: #1a1d24;
-      --dark3: #22262f;
+      --dark: #0d1117;
+      --dark2: #161b22;
+      --dark3: #1e2430;
       --white: #ffffff;
       --gray: #8a8f9e;
       --border: rgba(255,255,255,0.07);
@@ -31,14 +31,14 @@
     .nav-links a:hover, .nav-links a.active { color: var(--orange); }
 
     /* HERO */
-    .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 80px 0; }
-    .hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(245,166,35,0.08) 0%, transparent 70%); pointer-events: none; }
+    .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 80px 0; background: var(--dark); }
+    .hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(245,166,35,0.06) 0%, transparent 70%); pointer-events: none; }
     .hero-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; width: 100%; }
     .hero-text { flex: 1; }
-    .hero-greeting { font-size: 1.2rem; font-weight: 400; color: var(--gray); margin-bottom: 8px; }
+    .hero-greeting { font-size: 1.3rem; font-weight: 400; color: var(--gray); margin-bottom: 4px; }
     .hero-name { font-size: 3rem; font-weight: 800; line-height: 1.1; margin-bottom: 12px; }
     .hero-name span { color: var(--orange); }
-    .hero-role { font-size: 0.9rem; color: var(--gray); margin-bottom: 6px; }
+    .hero-role { font-size: 0.9rem; color: var(--gray); margin-bottom: 4px; }
     .hero-role-highlight { color: var(--orange); font-weight: 600; font-size: 0.9rem; margin-bottom: 28px; }
     .btn-orange { display: inline-flex; align-items: center; gap: 8px; background: var(--orange); color: var(--dark); padding: 12px 28px; border-radius: 4px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: 0.2s; margin-bottom: 32px; }
     .btn-orange:hover { background: var(--orange-dark); transform: translateX(4px); }
@@ -47,11 +47,14 @@
     .hero-social:hover { border-color: var(--orange); color: var(--orange); }
     .hero-cv { font-size: 0.82rem; color: var(--gray); }
     .hero-cv a { color: var(--orange); text-decoration: none; font-weight: 600; }
-    .hero-photo { flex-shrink: 0; position: relative; }
-    .photo-circle { width: 300px; height: 300px; border-radius: 50%; background: var(--orange); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-    .photo-circle img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-    .photo-circle .photo-icon { font-size: 8rem; color: rgba(17,19,24,0.5); }
-    .photo-ring-outer { width: 320px; height: 320px; border-radius: 50%; border: 2px solid rgba(245,166,35,0.3); display: flex; align-items: center; justify-content: center; }
+
+    /* FOTO HERO - keluar dari lingkaran */
+    .hero-photo { flex-shrink: 0; display: flex; align-items: flex-end; justify-content: center; }
+    .photo-wrap { position: relative; width: 320px; height: 380px; display: flex; align-items: flex-end; justify-content: center; }
+    .photo-bg-circle { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 280px; height: 280px; border-radius: 50%; background: var(--orange); z-index: 1; }
+    .photo-bg-ring { position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 310px; height: 310px; border-radius: 50%; border: 2px solid rgba(245,166,35,0.25); z-index: 0; }
+    .photo-img { position: relative; z-index: 2; height: 370px; width: auto; object-fit: contain; object-position: bottom; filter: drop-shadow(0 10px 40px rgba(0,0,0,0.5)); }
+    .photo-fallback { position: relative; z-index: 2; font-size: 10rem; color: rgba(13,17,23,0.4); line-height: 1; }
     /* SECTIONS */
     .section { padding: 80px 0; }
     .section-tag { font-size: 0.75rem; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
@@ -159,8 +162,10 @@
       .hero-socials { justify-content: center; }
       .about-grid { grid-template-columns: 1fr; }
       .kontak-grid { grid-template-columns: 1fr; }
-      .photo-ring-outer { width: 220px; height: 220px; }
-      .photo-circle { width: 200px; height: 200px; }
+      .photo-wrap { width: 240px; height: 280px; }
+      .photo-bg-circle { width: 210px; height: 210px; }
+      .photo-bg-ring { width: 230px; height: 230px; }
+      .photo-img { height: 270px; }
       .nav-links { display: none; }
     }
   </style>
@@ -199,8 +204,11 @@
       <div class="hero-cv"><a href="#sertifikat"><i class="fas fa-download"></i> Lihat Sertifikat</a></div>
     </div>
     <div class="hero-photo">
-      <div class="photo-ring-outer">
-        <div class="photo-circle" id="heroPhoto"></div>
+      <div class="photo-wrap">
+        <div class="photo-bg-ring"></div>
+        <div class="photo-bg-circle"></div>
+        <img src="ataya.png" alt="Atthaya Hilmy Dzaky" class="photo-img" id="heroPhoto" onerror="this.style.display='none'; document.getElementById('photoFallback').style.display='block'">
+        <i class="fas fa-user-graduate photo-fallback" id="photoFallback" style="display:none;"></i>
       </div>
     </div>
   </div>
@@ -403,29 +411,6 @@
 </footer>
 
 <script>
-  // Foto profil hero
-  (function() {
-    const hero = document.getElementById('heroPhoto');
-    const about = document.getElementById('aboutPhoto');
-    const names = ['ataya.png','ataya.jpg','ataya.jpeg','atthaya.jpg','foto.jpg'];
-    let i = 0;
-    function tryNext() {
-      if (i >= names.length) {
-        hero.innerHTML = '<i class="fas fa-user-graduate photo-icon"></i>';
-        if(about) about.innerHTML = '<i class="fas fa-user-graduate big-icon"></i>';
-        return;
-      }
-      const img = new Image();
-      img.onload = () => {
-        hero.innerHTML = `<img src="${names[i]}" alt="Atthaya">`;
-        if(about) about.innerHTML = `<img src="${names[i]}" alt="Atthaya">`;
-      };
-      img.onerror = () => { i++; tryNext(); };
-      img.src = names[i];
-    }
-    tryNext();
-  })();
-
   // Tab proyek
   function switchTab(tab, btn) {
     document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
